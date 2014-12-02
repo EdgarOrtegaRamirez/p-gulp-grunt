@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    title Gulp.js
+    title Gulp.js vs Grunt.js
 
     link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Open+Sans:300,600')
     link(rel='stylesheet', type='text/css', href='build/build.css')
@@ -12,64 +12,275 @@ html
 
     article
 
-      section(data-bespoke-backdrop='emphatic')
-        <img src="images/gulp-2x.png">
+      section
         h1 Gulp.js
+        h2 vs
+        h1 Grunt.js
         br
-        h4 The streaming build system
+        img.avatar.avatar--small(src='https://pbs.twimg.com/profile_images/532534898666795008/8QulLQTS_reasonably_small.jpeg')
+        h4 Edgar Ortega
+        h4 Web Developer
 
-      section(data-bespoke-backdrop='emphatic')
-        h2 Keyboard Interaction
-        h3 Powered by <a target="_blank" href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
+      section.gif.gif--fight
+        h2 Estado actual...
 
-      section(data-bespoke-backdrop='emphatic')
-        h2 Touch Interaction
-        h3 Powered by <a target="_blank" href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
+      section.light(data-bespoke-state='green')
+        img(src='images/grunt-logo.png')
+        h2 Una breve historia de Grunt
+        p github.com/gruntjs/grunt
 
-      section(data-bespoke-backdrop='emphatic')
-        h2 Responsive Slides
-        h3 Powered by <a target="_blank" href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
+      section
+        img.avatar(src='images/ben-alman.jpg')
+        quote For the last few months, I’ve been working hard on grunt, a task-based command line build tool for JavaScript projects that facilitates creating new projects and makes performing repetitive but necessary tasks such as linting, unit testing, concatenating and minifying files (among other things) trivial.
+        br
+        p.
+          Ben Alman
+          <br>
+          <small>March 2012</small>
 
-      section(data-bespoke-backdrop='emphatic')
-        h2 Bullet List
-        h3.bullet Powered by <a target="_blank" href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+      section
+        h2 Instalación
+        pre.language-bash
+          code $ npm install -g grunt
+
+      section
+        h2 Configuración sobre código
+        pre.language-javascript
+          code.
+            grunt.initConfig({
+              lint: {
+                src: 'src/&lt;%= pkg.name %&gt;.js'
+              },
+              concat: {
+                js : {
+                  src : ['js/*'],
+                  dest : 'combined.js'
+                }
+              },
+            });
+
+      section
+        h1.bullet Built-in tasks
         ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
+          li init
+          li concat
+          li lint
+          li min
+          li qunit
+          li server
+          li test
+          li watch
 
-      section(data-bespoke-backdrop='emphatic')
-        h2 Syntax Highlighting
-        h3 Powered by <a target="_blank" href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a target="_blank" href="https://github.com/LeaVerou/prism">Prism</a>
-        pre
-          code.language-javascript.
-            bespoke.from('article', [
-              classes(),
-              keys(),
-              touch(),
-              bullets('li, .bullet')
-            ]);
+      section.light(data-bespoke-state='green', data-bespoke-backdrop='emphatic')
+        h2.bullet Configuración simple
+        p.bullet Pasos comunes para hacer un build
+        p.bullet Diseñado para librerias pequeñas y plugins
 
-      section(data-bespoke-hash='named-route', data-bespoke-backdrop='emphatic')
-        h2 Named Route
-        h3 Powered by <a target="_blank" href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
+      section.gif.gif--omg-grunt
+        h1 Yeah! Grunt!
 
-      section(data-bespoke-backdrop='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a target="_blank" href="https://github.com/markdalgleish/bespoke-backdrop">bespoke-backdrop</a>
-
-      section(data-bespoke-backdrop='emphatic')
-        h2.bullet Just the beginning...
-        br
-        ul
-          li Edit <a target="_blank" href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a target="_blank" href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        br
+      section
+        h2.bullet Proyectos usando Grunt
         ul
           li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+            a(href='https://github.com/hakimel/reveal.js', target='_blank') Reveal.js
+            p https://github.com/hakimel/reveal.js
+          li
+            a(href='https://github.com/jquery/jquery', target='_blank') jQuery
+            p https://github.com/jquery/jquery
+          li
+            a(href='https://github.com/twbs/bootstrap', target='_blank') TW Bootstrap
+            p https://github.com/twbs/bootstrap
+          li
+            a(href='https://github.com/Modernizr/Modernizr') Modernizr
+            p https://github.com/Modernizr/Modernizr
+
+      section.light(data-bespoke-state='green')
+        h2.bullet Pero...
+        h2.bullet ¿Qué estaba mal?
+        ul
+          li Comando global <code>grunt</code>
+          li Al actualizar Grunt podría dañar proyectos antiguos
+          li Nuevos proyectos podrían no funcionar en versiones anteriores
+          li Grunt fue realmente diseñado para proyectos pequeños
+
+      section
+        h1.bullet Grunt v0.4
+        h3.bullet Liberado en Febrero 2013
+        ul
+          li <code>grunt.js</code> se convirtió en <code>Gruntfile.js</code>
+          li <code>init</code> task se convirtió en el plugin <code>grunt-init</code>
+          li Instalación local de Grunt por proyecto
+          li Todo es un plugin, no más built-in tasks
+
+      section
+        h1.bullet Grunt v0.4
+        h1.bullet +
+        h1.bullet Bower
+        h1.bullet +
+        h1.bullet Yeoman
+
+      section.gif.gif--well-done
+
+      section.gif.gif--gulp(data-bespoke-state='green')
+        h1 Aparece un retador
+
+      section
+        img(src='images/gulp-logo.png')
+        h2 Gulp.js
+        br
+        p github.com/gulpjs/gulp
+
+      section
+        ul
+          li Sistema para hacer builds basado en Stream
+          li Código sobre configuración
+          li Pequeño
+          li escrito como módulos de Node.js
+          li Realmente simple
+
+      section
+        h2.bullet Gulpfile.js básico
+        pre.bullet.language-javascript
+          code.
+            var gulp = require('gulp'),
+              stylus = require('gulp-stylus'),
+              autoprefixer = require('gulp-autoprefixer');
+        pre.bullet.language-javascript
+          code.
+            gulp.task('default', function() {
+              return gulp.src('src/styles/*.styl')
+                .pipe(stylus())
+                .pipe(autoprefixer())
+                .pipe(gulp.dest('public/styles'));
+            });
+
+      section
+        h2.bullet Gulp tasks se ejecutan desde la terminal
+        pre.bullet.language-bash
+          code $ gulp taskname
+
+      section
+        h1.bullet Streaming Builds
+        pre.bullet.language-javascript
+          code.
+            gulp.src('src/main.styl') // &lt;- Read
+
+              // Transforms
+              .pipe(stylus())
+              .pipe(rename({ ext: 'css' }))
+              .pipe(autoprefixer())
+              .pipe(cssmin())
+              .pipe(header('/* Copyright 2014 */'))
+
+              .pipe(gulp.dest('dist')) // &lt;- Write
+
+      section.light(data-bespoke-state='green')
+        h2.bullet Streams?
+        ul
+          li Streams come to us from unix as a dependable way to compose large systems out of small components that do one thing well.
+        br
+        .bullet
+          img(src='images/github.svg')
+          h4
+            a(href='https://github.com/substack/stream-handbook', target='_blank') substack/stream-handbook
+
+      section
+        img.avatar(src='images/maxogden.png')
+        br
+        blockquote best part about <a target='_blank' href='https://twitter.com/gulpjs'>@gulpjs</a> is that people are writing generic, streaming node modules that have nothing to do w/ gulp except the module name :)
+        br
+        p
+          a(href='https://twitter.com/maxogden') @maxogden
+
+      section.gif.gif--gulp-api
+        h1.bullet Aprendamos la API de Gulp
+        h2.bullet No es tan dificil
+
+      section
+        h1.bullet gulp.task
+        pre.language-javascript.bullet
+          code.
+            gulp.task('somename', ['deps'], function() {
+              // Do stuff
+            });
+
+      section
+        h1.bullet gulp.watch
+        h2.bullet ejecuta una función cuando un archivo se modifica
+        pre.language-javascript.bullet
+          code.
+            gulp.watch('src/*.js', ['test', 'compile']);
+
+      section
+        h1.bullet gulp.src
+        h2.bullet retorna un "readable stream"
+        pre.language-javascript.bullet
+          code.
+            gulp.src('src/*.js')
+
+      section
+        h1.bullet gulp.dest
+        h2.bullet retorna un "through stream"
+        pre.language-javascript.bullet
+          code.
+            gulp.src('./client/templates/*.jade')
+            .pipe(jade())
+            .pipe(gulp.dest('./build/templates'))
+            .pipe(minify())
+            .pipe(gulp.dest('./build/minified_templates'));
+
+      section.gif.gif--thats-it
+        br.bullet
+        h2.bullet <code>task</code> - <code>watch</code> - <code>src</code> - <code>dest</code>
+        h2.bullet ¡Eso es todo!
+
+      section.light(data-bespoke-state='green')
+        h2.bullet Pero...
+        h2.bullet ¿Qué hay detrás de todo esto?
+
+      section.gif.gif--orchestrator
+        h1.bullet Orchestrator
+        p.bullet a module for sequencing and executing tasks and dependencies in maximum concurrency
+        br
+        .bullet
+          img(src='images/github.svg')
+          h4
+            a(href='https://github.com/robrich/orchestrator', target='_blank') robrich/orchestrator
+
+      section.gif.gif--vinyl
+        h1.bullet vinyl
+        p.bullet a very simple metadata object that describes a file.
+        br
+        .bullet
+          img(src='images/github.svg')
+          h4
+            a(href='https://github.com/wearefractal/vinyl', target='_blank') wearefractal/vinyl
+
+      section
+        h2.bullet Proyectos usando Gulp
+        ul
+          li
+            a(href='https://github.com/markdalgleish/bespoke.js', target='_blank') Bespoke.js
+            p https://github.com/markdalgleish/bespoke.js
+          li
+            a(href='https://github.com/driftyco/ionic', target='_blank') Ionic Framework
+            p https://github.com/driftyco/ionic
+          li
+            a(href='https://github.com/google/web-starter-kit', target='_blank') Google Web Starter Kit
+            p https://github.com/google/web-starter-kit
+          li
+            a(href='https://github.com/h5bp/html5-boilerplate') HTML5 Boilerplate
+            p https://github.com/h5bp/html5-boilerplate
+
+      section.gif.gif--omg-grunt
+        h1.bullet Código en vivo
+
+      section
+        h1 ¡Gracias!
+        br
+        img.avatar.avatar--small(src='https://pbs.twimg.com/profile_images/532534898666795008/8QulLQTS_reasonably_small.jpeg')
+        h4 Edgar Ortega
+        h4 Web Developer
 
     script(src='build/build.js')
