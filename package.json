@@ -2,7 +2,9 @@
   "name": "presentation-gulpjs",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "del": "^1.0.0"
+  },
   "devDependencies": {
     "bespoke": "^1.0.0",
     "bespoke-backdrop": "^1.0.0",
@@ -24,7 +26,6 @@
     "gulp-jade": "^0.6.0",
     "gulp-plumber": "^0.6.3",
     "gulp-rename": "^1.2.0",
-    "gulp-rimraf": "^0.1.0",
     "gulp-stylus": "^1.0.2",
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^2.2.17",

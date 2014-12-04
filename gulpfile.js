@@ -2,7 +2,7 @@ var pkg = require('./package.json'),
   gulp = require('gulp'),
   gutil = require('gulp-util'),
   plumber = require('gulp-plumber'),
-  rimraf = require('gulp-rimraf'),
+  del = require('del'),
   rename = require('gulp-rename'),
   connect = require('gulp-connect'),
   browserify = require('gulp-browserify'),
@@ -58,28 +58,23 @@ gulp.task('images', ['clean:images'], function() {
 });
 
 gulp.task('clean', function() {
-  return gulp.src('dist')
-    .pipe(rimraf());
+  return del('dist');
 });
 
 gulp.task('clean:html', function() {
-  return gulp.src('dist/index.html')
-    .pipe(rimraf());
+  return del('dist/index.html');
 });
 
 gulp.task('clean:js', function() {
-  return gulp.src('dist/build/build.js')
-    .pipe(rimraf());
+  return del('dist/build/build.js');
 });
 
 gulp.task('clean:css', function() {
-  return gulp.src('dist/build/build.css')
-    .pipe(rimraf());
+  return del('dist/build/build.css');
 });
 
 gulp.task('clean:images', function() {
-  return gulp.src('dist/images')
-    .pipe(rimraf());
+  return del('dist/images');
 });
 
 gulp.task('connect', ['build'], function(done) {
