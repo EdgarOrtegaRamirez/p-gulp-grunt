@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    title Gulp.js vs Grunt.js
+    title Gulp.js
 
     link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Open+Sans:300,600')
     link(rel='stylesheet', type='text/css', href='build/build.css')
@@ -14,15 +14,14 @@ html
 
       section
         h1 Gulp.js
-        h2 vs
-        h1 Grunt.js
         br
-        img.avatar.avatar--small(src='https://pbs.twimg.com/profile_images/532534898666795008/8QulLQTS_reasonably_small.jpeg')
+        img.avatar.avatar--small(src='https://pbs.twimg.com/profile_images/540647352798048257/Tfo6ue7c_400x400.jpeg')
         h4 Edgar Ortega
         h4 Web Developer
 
       section.gif.gif--fight
-        h2 Estado actual...
+        h1.bullet Gulp vs Grunt
+        h2.bullet Estado actual...
 
       section.light(data-bespoke-state='green')
         img(src='images/grunt-logo.png')
@@ -79,22 +78,6 @@ html
       section.gif.gif--omg-grunt
         h1 Yeah! Grunt!
 
-      section
-        h2.bullet Proyectos usando Grunt
-        ul
-          li
-            a(href='https://github.com/hakimel/reveal.js', target='_blank') Reveal.js
-            p https://github.com/hakimel/reveal.js
-          li
-            a(href='https://github.com/jquery/jquery', target='_blank') jQuery
-            p https://github.com/jquery/jquery
-          li
-            a(href='https://github.com/twbs/bootstrap', target='_blank') TW Bootstrap
-            p https://github.com/twbs/bootstrap
-          li
-            a(href='https://github.com/Modernizr/Modernizr') Modernizr
-            p https://github.com/Modernizr/Modernizr
-
       section.light(data-bespoke-state='green')
         h2.bullet Pero...
         h2.bullet ¿Qué estaba mal?
@@ -141,13 +124,14 @@ html
 
       section
         h2.bullet Gulpfile.js básico
-        pre.bullet.language-javascript
-          code.
+        pre.language-javascript
+          code.bullet.
             var gulp = require('gulp'),
               stylus = require('gulp-stylus'),
               autoprefixer = require('gulp-autoprefixer');
-        pre.bullet.language-javascript
-          code.
+          br
+          br
+          code.bullet.
             gulp.task('default', function() {
               return gulp.src('src/styles/*.styl')
                 .pipe(stylus())
@@ -258,6 +242,22 @@ html
             a(href='https://github.com/wearefractal/vinyl', target='_blank') wearefractal/vinyl
 
       section
+        h2.bullet Proyectos usando Grunt
+        ul
+          li
+            a(href='https://github.com/hakimel/reveal.js', target='_blank') Reveal.js
+            p https://github.com/hakimel/reveal.js
+          li
+            a(href='https://github.com/jquery/jquery', target='_blank') jQuery
+            p https://github.com/jquery/jquery
+          li
+            a(href='https://github.com/twbs/bootstrap', target='_blank') TW Bootstrap
+            p https://github.com/twbs/bootstrap
+          li
+            a(href='https://github.com/Modernizr/Modernizr') Modernizr
+            p https://github.com/Modernizr/Modernizr
+
+      section
         h2.bullet Proyectos usando Gulp
         ul
           li
@@ -279,7 +279,7 @@ html
       section
         h1 ¡Gracias!
         br
-        img.avatar.avatar--small(src='https://pbs.twimg.com/profile_images/532534898666795008/8QulLQTS_reasonably_small.jpeg')
+        img.avatar.avatar--small(src='https://pbs.twimg.com/profile_images/540647352798048257/Tfo6ue7c_400x400.jpeg')
         h4 Edgar Ortega
         h4 Web Developer
 
