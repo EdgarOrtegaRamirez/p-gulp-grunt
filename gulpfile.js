@@ -1,5 +1,4 @@
-var pkg = require('./package.json'),
-  gulp = require('gulp'),
+var gulp = require('gulp'),
   gutil = require('gulp-util'),
   plumber = require('gulp-plumber'),
   del = require('del'),
